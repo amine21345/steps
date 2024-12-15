@@ -6,13 +6,6 @@ const messages = [
   "Invest your new income 🤑",
 ];
 function App() {
-  return (
-    <div>
-      <Steps />
-    </div>
-  );
-}
-function Steps() {
   const [step, setStep] = useState(1);
   const [isOpen, setIsOpen] = useState(true);
   function handlePrevious() {
@@ -38,35 +31,22 @@ function Steps() {
             Step {step}: {messages[step - 1]}
           </p>
           <div className="buttons">
-            <Button
-              bgColor={"#7950f2"}
-              textColor={"#fff"}
-              handleClick={handlePrevious}
+            <button
+              onClick={handlePrevious}
+              style={{ backgroundColor: "#7950f2", color: "#fff" }}
             >
-              👈Previous
-            </Button>
-            <Button
-              handleClick={handleNext}
-              bgColor={"#7950f2"}
-              textColor={"#fff"}
+              Previous
+            </button>
+            <button
+              onClick={handleNext}
+              style={{ backgroundColor: "#7950f2", color: "#fff" }}
             >
-              Next👉
-            </Button>
+              Next
+            </button>
           </div>
         </div>
       )}
     </Fragment>
-  );
-}
-
-function Button({ handleClick, bgColor, textColor, children }) {
-  return (
-    <button
-      onClick={handleClick}
-      style={{ backgroundColor: bgColor, color: textColor }}
-    >
-      {children}
-    </button>
   );
 }
 
